@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="atd.csc.druganalyzer" >
+    package="atd.csc.druganalyzer" android:versionCode="1"
+    android:versionName="1.0"  >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="17" />
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
 
     <application
         android:allowBackup="true"
@@ -17,5 +25,4 @@
             </intent-filter>
         </activity>
     </application>
-
 </manifest>
