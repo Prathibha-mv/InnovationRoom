@@ -1,5 +1,4 @@
 package atd.csc.druganalyzer;
-
 /**
  * Created by user on 11/18/14.
  */
@@ -26,12 +25,11 @@ public class ShowCamera extends SurfaceView implements SurfaceHolder.Callback {
     public void surfaceChanged(SurfaceHolder arg0, int arg1, int arg2, int arg3) {
     }
 
-
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
         try   {
             theCamera.setPreviewDisplay(holder);
-
+            theCamera.setDisplayOrientation(90);
             theCamera.startPreview();
         } catch (IOException e) {
         }

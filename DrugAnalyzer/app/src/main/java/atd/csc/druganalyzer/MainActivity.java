@@ -12,10 +12,12 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.Toast;
+import android.util.Log;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
+import java.util.Date;
 
 public class MainActivity extends Activity {
 
@@ -46,26 +48,21 @@ public class MainActivity extends Activity {
 
                 OutputStream output;
 
-                // Find the SD Card path
+                // Copy image to external storage
                 File filepath = Environment.getExternalStorageDirectory();
-
-                // Create a new folder in SD Card
-                File dir = new File(filepath.getAbsolutePath()
-                        + "/DrugAnalyser/");
+                String Test= getResources().getString(R.string.FolderName);
+                File dir = new File(filepath.getAbsolutePath() +"/"+Test+"/");
                 dir.mkdirs();
-
-                // Create a name for the saved image
-                File file = new File(dir, "myimage.png");
-
-                // Show a toast message on successful save
+                Date d=new Date();
+                String n=d.getTime()+".jpeg";
+                File file = new File(dir,n);
 
                 try {
 
                     output = new FileOutputStream(file);
-
-                    // Compress into png format image from 0% - 100%
-                    bitmap.compress(Bitmap.CompressFormat.PNG, 100, output);
+                    bitmap.compress(Bitmap.CompressFormat.JPEG, 100, output);
                     Toast.makeText(MainActivity.this, "Image Saved ",Toast.LENGTH_SHORT).show();
+                    Log.d("Filename","Image saved at"+file.getAbsoluteFile());
                     output.flush();
                     output.close();
                 }
@@ -75,10 +72,6 @@ public class MainActivity extends Activity {
                     Toast.makeText(getApplicationContext(), "Failed to save", Toast.LENGTH_SHORT).show();
                     e.printStackTrace();
                 }
-
-
-
-
             }
             cameraObject.release();
         }
@@ -90,6 +83,7 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         pic = (ImageView) findViewById(R.id.imageView1);
         cameraObject = isCameraAvailiable();
+        //cameraObject.setParameters();
         showCamera = new ShowCamera(this, cameraObject);
         FrameLayout preview = (FrameLayout) findViewById(R.id.camera_preview);
         preview.addView(showCamera);
