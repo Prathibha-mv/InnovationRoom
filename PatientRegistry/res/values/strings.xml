@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, DatumDroidOCRActivity!</string>
+    <string name="app_name">OCR PatientRegistry</string>
+    <string name="button_text">Capture Patient ID</string>
+    <string name="text_hint">Patients ID is appeared here</string>
+    <string name="title_activity_display_message">DisplayMessageActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="name">Name</string>
+    <string name="age">Age</string>    
+    <string name="sex">Sex</string>
+    <string name="weightnew">press back button to retreive a new patient details</string>
+      <string name="weight">Weight</string>
+    <string name="patientid">PatientID</string>
+    <string name="ReturnMsg">Press back button </string>
+          
+</resources>
